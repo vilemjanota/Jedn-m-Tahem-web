@@ -1,0 +1,30 @@
+{{ define "main" }}
+
+ <center>  <h1>{{ .Title }}</h1>
+  Vilém Janota</center>
+</style>
+  {{- $sectionDelimiter := "<!-- section break -->" -}}
+  {{- $rawContentSections := split .RawContent $sectionDelimiter -}}
+  <div id="Informace">
+    <h2>Informace:</h2>
+      {{ index $rawContentSections 0 | .RenderString }}
+  </div>
+  <div id="Zadání">
+    <h2>Zadání:</h2>
+      {{ index $rawContentSections 1 | .RenderString }}
+  </div>
+  <div id="Anotace">
+    <h2>Anotace:</h2>
+      {{ index $rawContentSections 2 | .RenderString }}
+  </div>
+  <div id="Anotation">
+    <h2>Anotation:</h2>
+      {{ index $rawContentSections 3 | .RenderString }}
+  </div>
+  <div id="Odkazy">
+    <h2>Odkazy:</h2>
+      {{ index $rawContentSections 4 | .RenderString }}
+  </div>
+
+
+{{ end }}
